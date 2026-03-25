@@ -1,0 +1,42 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Git / logs
+*.log
+
+# Stata temporary or compiled artifacts
+*.smcl
+*.stpr
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.xdv
+
+# Large raw and intermediate datasets
+*.dta
+*.zip
+*.rar
+*.7z
+
+# Keep source code, docs, figures, tables, and final PDFs in git
+!*.do
+!*.tex
+!*.md
+!*.pdf
+!*.png
+!*.csv

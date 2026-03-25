@@ -1,0 +1,476 @@
+\documentclass[12pt,a4paper]{ctexart}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+
+\onehalfspacing
+
+\newtheorem{proposition}{命题}
+\newtheorem{corollary}{推论}
+\newtheorem{definition}{定义}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title{走人户随礼、关系资本与跨期财富配置\\
+\large 一个关于中国礼物流动的经济学解释}
+\author{匿名作者}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本文把中国乡土社会中的“走人户随礼”解释为一种嵌入人际关系网络的跨期财富配置机制。不同于把随礼仅仅视为礼俗、面子或消费性支出，本文强调：个体在他人婚丧嫁娶、生日寿宴与家庭仪式中的礼金给付，本质上是在关系网络中购买未来索取权、维持互助资格并平滑家庭生命周期中的大额支出。基于这一视角，本文构建一个包含关系资本、事件到达率和流动性约束的动态模型。模型表明，当前随礼规模取决于三类因素：一是与对方的关系强度和未来回礼概率；二是本家庭未来举办仪式的机会集；三是当期资金紧约束程度。由此可以解释为什么“自己满整十岁”、子女人数、家中老人数会显著影响当前随礼的预期收益，也可以解释为什么生产队时期的低流动性、强重复博弈环境强化了礼物的互助和保险功能，而城市化进程则提高了货币化程度并增加了关系回报率的异质性。本文在理论上将礼物交换、非正式保险和生命周期财富转移三类文献连接起来，为理解中国社会中人情往来的经济逻辑提供了一个可操作的分析框架。
+\end{abstract}
+
+\noindent\textbf{关键词：}走人户；随礼；关系资本；非正式保险；生命周期；城市化
+
+\section{引言}
+
+在中国社会，家庭在婚礼、丧礼、满月、升学、寿宴、乔迁等场合的礼金往来具有高度普遍性。尤其在乡村地区，所谓“走人户”并不只是简单赴宴，而是带着可记录、可追索、可比较的礼物进入一个长期重复的交换关系之中。礼物的名义是“人情”，其经济后果却往往表现为家庭间跨期资源的再分配：某一时期向外给出礼金，未来在自家办事时再由他人回流。因而，如果把礼金支出仅仅理解为消费，就无法解释它为何具有稳定的记账机制、为何与亲疏远近高度相关、为何在家庭成员结构变化时会系统性调整，也难以解释其在不同历史阶段表现出的韧性。
+
+本文提出一个核心命题：走人户随礼可以被理解为一种嵌入社会关系中的跨期财富配置机制。家庭今天给出的礼金，既是维持关系的投资，也是为未来可能发生的婚丧寿庆等事件购买索取权。在这一意义上，它类似于非正式金融安排，但其回报不由匿名市场决定，而由关系资本、社会规范与重复互动共同决定。与标准生命周期储蓄模型相比，礼物交换把一部分储蓄与保险功能外部化到社会网络之中；与纯粹社会学的礼俗解释相比，这一视角强调其在流动性约束、风险共担和财富平滑中的实际作用。
+
+本文与三支经典文献形成呼应。第一，礼物并非无偿，而是嵌入义务、回报与地位秩序之中，这一点可以追溯到 Mauss（1925）关于礼物交换的经典论述。第二，关系交换并不是市场之外的残余现象，而是经济行动“嵌入”社会结构的表现，这与 Granovetter（1985）和 Fei（1947）关于差序格局与嵌入性的讨论相一致。第三，在存在不完备信贷市场和收入风险时，村庄内家庭往往依赖非正式网络实现风险分担与资源平滑，这与 Townsend（1994）、Fafchamps and Lund（2003）等关于非正式保险的研究密切相关。本文的贡献在于：把中国礼俗实践中的“走人户随礼”明确地放进一个动态财富配置框架，解释它为何既像礼仪，又像储蓄，又像保险。
+
+进一步地，本文把历史制度变迁纳入分析。生产队时期，人口流动受限、邻里互动高频、正式金融匮乏，礼物交换的回收概率较高，因而更接近一种高密度、低货币化但强互助的网络资产。城市化推进之后，家庭迁移、职业分化和宴席市场化提高了礼金的货币属性与展示属性，同时弱化了一部分弱关系的可追索性。于是，同样是随礼，其经济逻辑从“普遍互助型储蓄”逐步转向“分层化、关系化的定向投资”。这一比较有助于说明礼俗为何没有随市场化而消失，而是在新的环境中演化出新的配置规则。
+
+文章其余部分安排如下。第二部分概述制度背景并界定“走人户随礼”的经济过程。第三部分构建动态模型并推出若干命题。第四部分比较生产队时期与城市化时期的均衡差异。第五部分讨论理论含义与可检验推论。第六部分总结。
+
+\section{制度背景与机制描述}
+
+\subsection{“走人户随礼”的基本过程}
+
+在典型的乡土或半乡土社会中，家庭在重要仪式来临时会向亲属、姻亲、邻里、同村熟人和部分工作关系发出通知。受邀者到场时往往携带现金、实物或礼品卡，并由主家或司礼人员登记姓名、金额与关系。仪式结束后，这笔“礼”并不消失，而是进入双方的长期往来账本：未来当给礼者家庭举办类似事件时，主家通常要依据既有记录、亲疏关系、场面体面和自身财力回礼。由此形成一个具有三重特征的机制。
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{可记录性。} 礼金具有显性金额，常被记入礼簿，因此历史给付可以被追溯。
+\item \textbf{可递延性。} 回报并不要求即时发生，而是在未来事件出现时兑现。
+\item \textbf{关系依附性。} 回礼规模不由统一利率决定，而与血缘、地缘、姻缘和日常互动强度有关。
+\end{enumerate}
+
+因此，走人户不是一次性转移，而是发生在网络节点之间的一系列带有人情约束的延期清算。这里的“收益”也不是狭义财务收益，而是包括未来礼金回流、关系维护、互助资格和声望保值在内的综合回报。
+
+\subsection{生产队时期与城市化后的差异}
+
+生产队时期的典型特征是：居住稳定、熟人社会边界清晰、集体劳动强化高频接触，而正规金融和商业保险供给不足。在这种环境下，家庭一旦脱离礼物流动，便可能在婚丧病老等关键节点失去重要的外部资源支持。因此，礼物交换具有明显的保险和互助功能，其约束机制主要来自重复博弈与社区评价。
+
+城市化之后，几个变化同时发生。第一，人口流动提高，原有关系网络被拉长、稀释或重组。第二，收入差距扩大，礼金负担与展示性消费动机增强。第三，宴席服务业、电子转账与异地联络降低了货币礼物流通成本，提高了礼金的标准化与现金化程度。结果是，礼物网络不再均匀覆盖所有熟人，而更集中于高权重关系和高回收概率关系。家庭在不同圈层中采取差异化给礼策略，体现出更明显的投资选择性质。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    font=\footnotesize,
+    >=Latex,
+    node distance=9mm,
+    box/.style={draw, align=center, text width=8.6cm, minimum height=1.05cm, inner sep=4pt}
+]
+\node[box] (conditions) {生命周期与关系条件：整十岁、子女人数、老人数、关系距离与网络嵌入};
+\node[box, below=of conditions] (expectation) {未来回报预期：办事机会 $q_{it}$、回收概率 $\pi_{ij}$、有效贴现 $\beta_{it}$};
+\node[box, below=of expectation] (gift) {当前随礼决策：$g_{ijt}$ 或 $g_{ijt}^{H}$};
+\node[box, below=of gift] (outcome) {跨期结果：未来礼金回流、关系维持与风险共担};
+
+\draw[->, thick] (conditions) -- (expectation);
+\draw[->, thick] (expectation) -- (gift);
+\draw[->, thick] (gift) -- (outcome);
+\end{tikzpicture}
+\caption{走人户随礼的分析框架：生命周期、关系网络与跨期回报}
+\label{fig:framework}
+\end{figure}
+
+图 \ref{fig:framework} 概括了全文的分析逻辑。家庭生命周期结构决定未来办事机会集，关系距离与圈层网络决定当前给礼的边际回收能力，而时间贴现、预期寿命和网络延续共同塑造对未来回礼的估值。这三者最终共同决定最优随礼额及其在跨期财富配置中的作用。
+
+\section{模型}
+\label{sec:model}
+
+\subsection{环境}
+
+考虑一个离散时间经济，时期为 $t=0,1,2,\dots$。家庭集合为 $\mathcal{N}=\{1,\dots,N\}$。每个家庭 $i$ 在时期 $t$ 的状态变量包括：可支配财富 $A_{it}$、当期收入 $y_{it}$、消费 $c_{it}$，以及与家庭 $j$ 的关系资本 $s_{ijt}\geq 0$。关系资本可以理解为由血缘、地缘、姻亲、共同劳动经历和既往互赠历史累积而成的可动员社会资源。
+
+家庭在时期 $t$ 可能参加他人的仪式并给出礼金，也可能自己主办仪式并收到礼金。定义 $g_{ijt}\geq 0$ 为家庭 $i$ 在时期 $t$ 对家庭 $j$ 的给礼额。定义家庭 $i$ 在时期 $t$ 自家可举办事件的机会强度为 $q_{it}$，它由生命周期结构决定：
+\begin{equation}
+q_{it}=\bar{q}+\theta_D D_{it}+\theta_C N^C_{it}+\theta_E N^E_{it},
+\label{eq:q}
+\end{equation}
+其中，$D_{it}$ 是一个指示变量，表示家庭核心成员是否进入“整十岁”生日窗口；$N^C_{it}$ 表示子女人数或将触发升学、婚嫁等仪式的子女数量；$N^E_{it}$ 表示家中高龄老人数量或潜在寿庆事件数量。参数 $\theta_D,\theta_C,\theta_E>0$ 表示这些家庭结构特征如何增加未来办事机会。
+
+式 \eqref{eq:q} 概括了一个直观事实：若某家庭未来更可能“办事”，则它今天在网络中的礼金投放更容易转化为未来回流，因此当前随礼的影子收益更高。
+
+\subsection{预算约束与关系演化}
+
+家庭 $i$ 的跨期预算约束写为
+\begin{equation}
+A_{i,t+1}=(1+r_t)\left(A_{it}+y_{it}-c_{it}-\sum_{j\neq i} g_{ijt}+\sum_{j\neq i} b_{jit}\right),
+\label{eq:budget}
+\end{equation}
+其中 $r_t$ 为无风险资产回报率，$b_{jit}$ 表示时期 $t$ 家庭 $j$ 对家庭 $i$ 的礼金回流。与标准储蓄不同，$b_{jit}$ 并不由金融合同保证，而依赖于关系存量与未来事件是否发生。
+
+假定关系资本遵循如下演化：
+\begin{equation}
+s_{ij,t+1}=(1-\delta)s_{ijt}+\phi g_{ijt},
+\label{eq:relation}
+\end{equation}
+其中 $\delta\in(0,1)$ 表示关系折旧率，$\phi>0$ 表示当前给礼对未来关系资本的增益。该式反映出一个重要机制：礼金不是单纯的资金转移，而是会内生地改变未来可获得的网络支持强度。
+
+\subsection{预期回礼与当前给礼决策}
+
+设家庭 $i$ 给家庭 $j$ 随礼后，未来从 $j$ 获得回礼的期望值为
+\begin{equation}
+\E_t[b_{ji,t+1}\mid g_{ijt}]
+=\pi_{ij,t}\, q_{i,t+1}\left(\bar{b}+\omega s_{ij,t+1}\right),
+\label{eq:expectedreturn}
+\end{equation}
+其中 $\pi_{ij,t}\in[0,1]$ 是家庭 $j$ 在未来仍属于可追索关系范围内的概率，受距离、迁移、职业分化和往来频率影响；$\omega>0$ 表示关系资本对未来回礼额的转化效率；$\bar{b}$ 为最低象征性回礼水平。式 \eqref{eq:expectedreturn} 说明，回礼的预期收益同时受到两方面约束：一是自己未来是否有办事机会，二是对方未来是否仍在可兑现网络之内。
+
+为突出核心机制，考虑家庭 $i$ 针对某一受礼家庭 $j$ 的静态化一期问题：
+\begin{equation}
+\max_{g_{ijt}\geq 0}
+\left\{
+ -\lambda_{it} g_{ijt}
+ -\frac{\gamma}{2}g_{ijt}^2
+ +\alpha s_{ij,t+1}
+ +\beta \E_t[b_{ji,t+1}\mid g_{ijt}]
+\right\},
+\label{eq:problem}
+\end{equation}
+其中 $\lambda_{it}>0$ 表示当期流动性约束的影子成本，$\gamma>0$ 表示边际给礼成本递增，$\alpha>0$ 表示维持关系资本的当期效用，$\beta\in(0,1)$ 为贴现因子。把 \eqref{eq:relation} 和 \eqref{eq:expectedreturn} 代入 \eqref{eq:problem}，可得内点解的一阶条件
+\begin{equation}
+\gamma g_{ijt}^*
+ =
+\phi\alpha
+ +
+\beta \phi \omega \pi_{ij,t} q_{i,t+1}
+ -
+\lambda_{it}.
+\label{eq:foc}
+\end{equation}
+因此最优给礼额为
+\begin{equation}
+g_{ijt}^*
+ =
+\max\left\{
+0,\
+\frac{\phi\alpha+\beta\phi\omega \pi_{ij,t} q_{i,t+1}-\lambda_{it}}{\gamma}
+\right\}.
+\label{eq:solution}
+\end{equation}
+
+式 \eqref{eq:solution} 是全文的核心结果。它把随礼理解为一种由关系资本回报、未来办事机会与当前流动性共同决定的投资决策。
+
+\subsection{命题}
+
+\begin{proposition}[随礼的跨期配置性质]
+在其他条件不变时，若家庭 $i$ 的未来办事机会强度 $q_{i,t+1}$ 上升，则其当前对他人的最优给礼额 $g_{ijt}^*$ 弱增加。
+\end{proposition}
+
+\begin{proof}
+由式 \eqref{eq:solution}，只要内点解为正，就有
+\[
+\frac{\partial g_{ijt}^*}{\partial q_{i,t+1}}
+=
+\frac{\beta\phi\omega \pi_{ij,t}}{\gamma}
+>0.
+\]
+当角点解为零时，$q_{i,t+1}$ 的提高至少不会降低最优给礼额。因此命题成立。
+\end{proof}
+
+这一命题意味着，走人户不是孤立的当前决策，而是围绕未来家庭生命周期事件进行的前置配置。若一个家庭即将面临“整十岁”生日，或子女多、老人多，则未来办事机会集更大，今天随礼的预期收益更高。
+
+\begin{proposition}[关系资本与回收概率]
+在其他条件不变时，关系可追索概率 $\pi_{ij,t}$ 越高，最优给礼额 $g_{ijt}^*$ 越大；同样地，关系投资效率 $\phi$ 和回礼转化效率 $\omega$ 越高，最优给礼额也越大。
+\end{proposition}
+
+\begin{proof}
+由式 \eqref{eq:solution} 直接得到
+\[
+\frac{\partial g_{ijt}^*}{\partial \pi_{ij,t}}
+=
+\frac{\beta\phi\omega q_{i,t+1}}{\gamma}
+>0,\qquad
+\frac{\partial g_{ijt}^*}{\partial \phi}
+=
+\frac{\alpha+\beta\omega\pi_{ij,t}q_{i,t+1}}{\gamma}
+>0.
+\]
+对 $\omega$ 的结论同理成立。
+\end{proof}
+
+该命题揭示了“亲的多给、远的少给、断了来往就不再重礼”的经济逻辑：关系越稳、越密、越可持续，礼金越像一种高回报资产。
+
+\begin{proposition}[流动性约束]
+在其他条件不变时，当期资金约束影子成本 $\lambda_{it}$ 越高，最优给礼额越低。
+\end{proposition}
+
+\begin{proof}
+由式 \eqref{eq:solution} 直接可得
+\[
+\frac{\partial g_{ijt}^*}{\partial \lambda_{it}}
+=
+-\frac{1}{\gamma}
+<0.
+\]
+\end{proof}
+
+因此，即使礼金具有未来回流价值，贫困家庭或遭遇短期收入冲击的家庭也可能被迫压缩随礼额度。这进一步意味着，礼物交换虽具有保险功能，但其参与本身也受流动性约束，因而可能复制或放大贫富差异。
+
+\subsection{模型扩展：霍特林关系空间、网络效应与寿命贴现}
+
+前述基准模型把关系资本视为抽象状态变量，这有助于突出跨期配置逻辑，但尚未充分刻画“亲疏远近”和“圈层行情”如何共同影响随礼决策。为此，本文进一步引入一个霍特林式社会距离框架。设每个家庭在关系空间中占据一个位置，家庭 $i$ 规范化位于原点，潜在往来对象 $j$ 位于 $x_{ij}\in[0,1]$。这里的 $x_{ij}$ 不是地理距离本身，而是综合了血缘远近、空间迁移、职业分化、交往频率和情感强度之后的“社会距离”。$x_{ij}$ 越大，说明双方关系越远，维持与追索礼物交换的成本越高。
+
+在此基础上，把家庭 $i$ 针对家庭 $j$ 的净收益函数扩展为
+\begin{equation}
+\max_{g_{ijt}\geq 0}
+\left\{
+-\lambda_{it} g_{ijt}
+-\frac{\gamma}{2}g_{ijt}^2
++\alpha s_{ij,t+1}
++\beta_{it}\E_t[b_{ji,t+1}\mid g_{ijt}]
+-\tau x_{ij} g_{ijt}
++\eta N_{jt} g_{ijt}
+\right\},
+\label{eq:hotelling_problem}
+\end{equation}
+其中 $\tau>0$ 表示社会距离所对应的边际追索成本，$N_{jt}$ 表示家庭 $j$ 所在关系圈层的网络活跃度、礼俗密度或礼金可见性，$\eta>0$ 衡量网络外部性强度。式 \eqref{eq:hotelling_problem} 中新增的两项分别对应两个重要现实。其一，关系越远，当前给礼越不容易转化为未来稳定回报；其二，当某一圈层内部“大家都在重礼”时，个体给礼的边际回报会上升，因为退出该圈层或低于圈层标准的机会成本更高。
+
+与基准模型不同，这里的贴现因子记为 $\beta_{it}$，并进一步分解为
+\begin{equation}
+\beta_{it}
+=
+\rho_t \cdot \ell_{it} \cdot \kappa_{it},
+\label{eq:beta}
+\end{equation}
+其中 $\rho_t=\frac{1}{1+r_t}$ 是纯时间贴现项，$\ell_{it}\in[0,1]$ 表示家庭核心决策者或核心礼俗节点成员在下一期仍存续的概率，可理解为预期寿命或家庭生命周期延续概率，$\kappa_{it}\in[0,1]$ 表示家庭在下一期仍嵌入原有关系网络中的概率。式 \eqref{eq:beta} 强调了一个区别于标准消费模型的事实：在走人户随礼中，未来回报能否兑现不仅取决于时间偏好，也取决于家庭是否还“活着并留在这张网里”。
+
+进一步地，可把预期回礼函数写成
+\begin{equation}
+\E_t[b_{ji,t+1}\mid g_{ijt}]
+=
+\pi_{ij,t}(x_{ij})\, q_{i,t+1}\left(\bar{b}+\omega s_{ij,t+1}\right),
+\label{eq:expectedreturn_hotelling}
+\end{equation}
+其中 $\pi_{ij,t}'(x_{ij})<0$，即社会距离越大，可追索概率越低。为便于展示内点解，可把 \eqref{eq:relation} 与 \eqref{eq:expectedreturn_hotelling} 代入 \eqref{eq:hotelling_problem}，得到一阶条件
+\begin{equation}
+\gamma g_{ijt}^{H}
+=
+\phi\alpha
++\beta_{it}\phi\omega \pi_{ij,t}(x_{ij}) q_{i,t+1}
++\eta N_{jt}
+-\lambda_{it}
+-\tau x_{ij},
+\label{eq:foc_hotelling}
+\end{equation}
+从而
+\begin{equation}
+g_{ijt}^{H}
+=
+\max\left\{
+0,\
+\frac{\phi\alpha+\beta_{it}\phi\omega \pi_{ij,t}(x_{ij}) q_{i,t+1}+\eta N_{jt}-\lambda_{it}-\tau x_{ij}}{\gamma}
+\right\}.
+\label{eq:solution_hotelling}
+\end{equation}
+
+式 \eqref{eq:solution_hotelling} 把基准模型推进到一个更贴近现实的形式：当前最优随礼额不仅由未来办事机会和关系资本决定，还由社会距离、圈层网络效应和寿命相关贴现共同决定。
+
+\begin{proposition}[霍特林社会距离]
+在其他条件不变时，若社会距离 $x_{ij}$ 上升，则最优随礼额 $g_{ijt}^{H}$ 弱下降。
+\end{proposition}
+
+\begin{proof}
+由式 \eqref{eq:solution_hotelling} 可见，在内点解区域内，
+\[
+\frac{\partial g_{ijt}^{H}}{\partial x_{ij}}
+=
+\frac{\beta_{it}\phi\omega q_{i,t+1}\pi_{ij,t}'(x_{ij})-\tau}{\gamma}.
+\]
+由于 $\pi_{ij,t}'(x_{ij})<0$ 且 $\tau>0$，故上式严格小于零。若最优解处于角点，则距离上升同样不会提高最优随礼额，因此命题成立。
+\end{proof}
+
+这一命题说明，霍特林意义上的“关系距离”可以把“亲疏有别”正式地嵌入模型：近亲、常往来邻里和稳定同事关系的礼金更高，并不只是文化偏好，而是因为它们具有更低的追索成本和更高的回流确定性。
+
+\begin{proposition}[圈层网络效应]
+在其他条件不变时，若关系圈层的网络活跃度 $N_{jt}$ 提高，则个体对该圈层节点的最优随礼额 $g_{ijt}^{H}$ 弱增加。
+\end{proposition}
+
+\begin{proof}
+由式 \eqref{eq:solution_hotelling}，在内点区域有
+\[
+\frac{\partial g_{ijt}^{H}}{\partial N_{jt}}
+=
+\frac{\eta}{\gamma}
+>0.
+\]
+角点情形下结论同样成立。
+\end{proof}
+
+该命题刻画了礼金“行情”的形成机制。当某一关系圈层内部往来频繁、标准公开且偏离成本高时，个体即使与某一对象的私人关系并未显著变化，也可能因为圈层效应而提高随礼金额。这意味着礼金上涨不仅来自收入增长，也可能来自网络外部性推动下的边际收益曲线整体上移。
+
+\begin{proposition}[寿命贴现与生命周期]
+在其他条件不变时，预期寿命或家庭网络延续概率越高，即 $\ell_{it}$ 或 $\kappa_{it}$ 越高，则最优随礼额 $g_{ijt}^{H}$ 越大。
+\end{proposition}
+
+\begin{proof}
+由式 \eqref{eq:beta} 和 \eqref{eq:solution_hotelling}，在内点区域有
+\[
+\frac{\partial g_{ijt}^{H}}{\partial \ell_{it}}
+=
+\frac{\rho_t\kappa_{it}\phi\omega \pi_{ij,t}(x_{ij}) q_{i,t+1}}{\gamma}
+>0,
+\]
+\[
+\frac{\partial g_{ijt}^{H}}{\partial \kappa_{it}}
+=
+\frac{\rho_t\ell_{it}\phi\omega \pi_{ij,t}(x_{ij}) q_{i,t+1}}{\gamma}
+>0.
+\]
+故命题成立。
+\end{proof}
+
+这一结果表明，贴现因子不应被简单理解为抽象心理参数，而应与家庭生命周期、预期寿命和关系网络存续直接联系起来。对一个预期未来仍会频繁参与本地礼物流动的家庭而言，当前随礼更接近一项可兑现资产；对一个即将迁移、关系网络可能断裂或家庭核心成员高龄化严重的家庭而言，当前随礼则更像高风险支出。
+
+\begin{figure}[htbp]
+\centering
+\resizebox{0.84\textwidth}{!}{
+\begin{tikzpicture}[
+    font=\footnotesize,
+    >=Latex,
+    every node/.style={align=center}
+]
+\draw[->] (-0.5,0) -- (11.2,0) node[right] {霍特林式社会距离 $x_{ij}$};
+\draw[->] (0,-0.5) -- (0,5.2) node[above] {随礼边际净收益};
+
+\draw[thick, blue] (0.9,3.7) -- (9.7,0.85);
+\draw[thick, red] (0.9,4.35) -- (9.7,1.5);
+\draw[dashed] (4.7,0) -- (4.7,2.47);
+\draw[dashed] (6.9,0) -- (6.9,2.41);
+
+\filldraw[black] (4.7,2.47) circle (1.2pt);
+\filldraw[black] (6.9,2.41) circle (1.2pt);
+
+\node[below] at (4.7,0) {$x^{*}_{\text{基准}}$};
+\node[below] at (6.9,0) {$x^{*}_{\text{高网络效应/高寿命贴现}}$};
+\node[blue, anchor=west] at (8.15,1.35) {基准边际收益};
+\node[red, anchor=west] at (7.45,2.55) {网络效应更强或\\有效贴现更高};
+\node[above left] at (0.35,4.45) {近关系};
+\node[above right] at (10.35,0.25) {远关系};
+\end{tikzpicture}
+}
+\caption{霍特林关系空间中的随礼边际收益示意图}
+\label{fig:hotelling}
+\end{figure}
+
+图 \ref{fig:hotelling} 以示意图方式说明扩展模型的核心直觉。横轴上的社会距离越大，关系越疏远，礼金回流的可追索性越弱，因此边际净收益向下倾斜；当圈层网络效应增强，或由于预期寿命更长、网络延续性更强而使有效贴现因子提高时，边际收益曲线整体上移，最优给礼所覆盖的关系边界向外扩展。
+
+\section{历史比较：生产队时期与城市化冲击}
+
+\subsection{生产队时期：高重复、强互助的关系资产}
+
+把生产队时期表示为制度状态 $R=P$。在这一状态下，可合理假定：
+\[
+\pi_{ij}^P \text{ 较高}, \qquad \delta^P \text{ 较低}, \qquad \lambda_{it}^P \text{ 较高}.
+\]
+含义分别是：关系更稳定，折旧更慢，但现金约束更紧。由于熟人社会封闭、迁移少、长期共同劳动频繁，给礼带来的未来兑现概率高，违约的社会惩罚也更强。尽管当期手头并不宽裕，家庭仍有较强动机维持广覆盖的礼物网络，因为这等于维持一套可在婚丧病老时调用的社区融资与互助机制。
+
+这一阶段的随礼具有三个特征。第一，金额相对有限，但覆盖面广。第二，礼物可表现为现金、粮食、劳力或实物的混合。第三，回报更加依赖社区内持续声誉，而不是一次性展示。换言之，生产队时期的礼物均衡更接近“分散储蓄加互助保险”的组合。
+
+\subsection{城市化冲击：货币化、分层化与异质化}
+
+把城市化后的状态表示为 $R=U$。这一时期可以概括为：
+\[
+\pi_{ij}^U \text{ 的均值下降但方差上升}, \qquad
+\delta^U \text{ 上升}, \qquad
+\omega^U \text{ 对核心关系更高}.
+\]
+人口外流和职业分化使许多弱关系变得难以追索，导致平均回收概率下降；但对近亲、关键同学同事和高价值网络节点而言，礼物交换反而更加精细和高额，因此异质性明显上升。与此同时，宴席产业化和现金支付便利化增强了礼金的货币形态，使其更易比较、记录和升级。
+
+从扩展模型看，城市化并不会简单消灭随礼，而是同时改变社会距离、网络效应与贴现结构。弱关系上的 $g_{ijt}^{H}$ 一方面因 $x_{ij}$ 上升、$\pi_{ij,t}(x_{ij})$ 下降而减少，另一方面也因网络断裂风险提高、$\kappa_{it}$ 下降而被进一步压缩；相反，强关系或高价值圈层上的 $g_{ijt}^{H}$ 则可能因 $\omega$、$N_{jt}$ 上升而增加。结果是，礼物流动从相对均匀的社区互助网络，转向更有选择性的分层网络。
+
+\begin{corollary}[城市化下礼金分化]
+若城市化使关系回收概率 $\pi_{ij,t}$ 的分布更加分散，则家庭之间和关系之间的最优随礼额分布也更分散。
+\end{corollary}
+
+这一推论可以解释现实中常见的现象：同一家庭在面对不同圈层对象时，往往采取差异极大的礼金额度；同一地区内部，也会因为职业、迁移经历和关系网络结构不同而出现明显礼金分层。
+
+\section{讨论：从礼俗到财富配置}
+
+\subsection{为什么“整十岁、孩子数、老人数”会影响收益}
+
+在日常经验中，人们往往知道哪些家庭“以后办事多”，也知道某些年龄节点意味着未来收礼机会显著增加。模型中的 $D_{it}$、$N^C_{it}$ 和 $N^E_{it}$ 正是对这一经验事实的抽象。一个核心成员临近整十岁生日的家庭，更可能举办寿宴或庆生仪式；子女人数更多的家庭，在升学、婚嫁、生育等节点上的办事机会更频繁；家中高龄老人较多的家庭，则在寿庆、照护与丧葬等方面面临更多礼俗支出与回礼流动。因此，这些变量并不只是“热闹程度”的指标，而是影响礼金投资回报率的关键状态变量。
+
+换言之，当前随礼的收益不是一成不变的，而取决于家庭在未来是否有足够的“兑现窗口”。这与经典生命周期理论的逻辑一致：家庭会围绕未来大额支出或收入节点安排资源。但在走人户体系中，这种安排不是通过银行存款、保险合同或资本市场完成，而是通过社会网络中的礼金往来实现。若再考虑有效贴现因子 $\beta_{it}=\rho_t\ell_{it}\kappa_{it}$，则这些家庭结构变量不仅提高未来办事机会 $q_{it}$，也可能改变家庭对未来回礼的主观权重。例如，老人数量增加一方面扩大寿庆与丧葬事件集合，另一方面也使家庭更关注生命历程相关节点的礼物流动，从而改变当前给礼决策。
+
+\subsection{与经典文献的联系}
+
+首先，Mauss（1925）强调礼物总是伴随着“给、受、还”的义务链条。本文在经济学上把这条义务链条转译为一个带有状态变量和预期收益的动态配置问题。其次，Fei（1947）关于差序格局的洞见解释了为什么礼金回报并不均匀，而是以关系远近为梯度；在本文的扩展模型中，这一点进一步被形式化为霍特林式社会距离 $x_{ij}$。再次，Granovetter（1985）的嵌入性观点说明，经济交换并非自动脱离社会结构，而网络活跃度 $N_{jt}$ 的引入正体现了圈层规范如何改变个体边际收益。最后，Townsend（1994）和 Fafchamps and Lund（2003）关于村庄非正式保险的研究提示我们：在缺乏完备金融市场的环境中，看似“非经济”的社会交往往往承担着极其经济的功能；而本文把这种功能进一步写成与预期寿命和网络延续概率相关的有效贴现结构。
+
+本文的理论含义是，随礼制度可以被视为一类社会化储蓄装置。它既能在时间维度上把当前资源转移到未来，也能在家庭之间进行风险共担。但由于回报依赖关系资本，这种装置天然带有排他性和不平等性：关系越密的人越容易获得高回报，流动性越差的人越难维持参与资格。
+
+\subsection{可检验命题}
+
+如果将来进行经验研究，本文模型至少提出以下几个可检验命题。第一，在控制收入和地区固定效应后，整十岁年龄节点、子女人数和老人数应当显著提高家庭当前的随礼支出。第二，人口流出率越高、迁移越频繁的地区，弱关系礼金应下降，而核心亲属关系礼金占比上升，这对应于社会距离 $x_{ij}$ 上升和网络存续概率下降。第三，某一圈层内部礼金公开性越强、互动越频繁，则个体礼金额度更容易受圈层均值牵引，体现网络效应 $N_{jt}$ 的放大作用。第四，正规金融可得性改善后，礼物交换中的保险性成分可能下降，但其关系维持和地位展示成分未必同步下降。第五，在收入分化更强、网络结构更分层的城市化地区，礼金额度分布的离散度可能更高。
+
+\section{结论}
+
+本文把“走人户随礼”理解为中国社会中一种嵌入关系网络的跨期财富分配机制。在这一机制中，礼金既是当前支出，也是未来索取权；既是关系维护，也是风险共担；既反映礼俗规范，也服从资源配置逻辑。通过一个包含关系资本、事件机会集与流动性约束的动态模型，本文说明了为何当前随礼额会随未来办事机会、关系回收概率和家庭资金状况而变化，并据此解释了整十岁、子女人数与老人数如何影响礼金的预期收益。进一步地，本文引入霍特林式社会距离、圈层网络效应与寿命相关贴现因子，说明“亲疏有别”“圈层行情”和“预期寿命”并不是外围因素，而是决定随礼边际收益斜率的关键变量。
+
+在历史维度上，生产队时期的低流动性、强熟人社会与金融匮乏，使礼物交换更像社区内部的互助储蓄和保险装置；而城市化则提高了礼金的货币化程度，并使关系回报率出现更强的分层与异质化。由此看，走人户随礼并不是传统向现代的简单遗留，而是一种能够适应制度环境变化的社会化财富配置技术。未来若能结合家计调查、礼簿记录和迁移信息进行经验检验，将有助于更系统地识别礼物交换在中国家庭金融中的真实地位。
+
+\begin{thebibliography}{99}
+
+\bibitem{mauss1925}
+Mauss, M. (1925).
+\newblock \emph{Essai sur le don}.
+\newblock Paris: Presses Universitaires de France.
+
+\bibitem{fei1947}
+费孝通. (1947).
+\newblock \emph{乡土中国}.
+\newblock 上海: 观察社.
+
+\bibitem{granovetter1985}
+Granovetter, M. (1985).
+\newblock Economic action and social structure: The problem of embeddedness.
+\newblock \emph{American Journal of Sociology}, 91(3), 481--510.
+
+\bibitem{townsend1994}
+Townsend, R. M. (1994).
+\newblock Risk and insurance in village India.
+\newblock \emph{Econometrica}, 62(3), 539--591.
+
+\bibitem{fafchamps2003}
+Fafchamps, M., \& Lund, S. (2003).
+\newblock Risk-sharing networks in rural Philippines.
+\newblock \emph{Journal of Development Economics}, 71(2), 261--287.
+
+\bibitem{modigliani1954}
+Modigliani, F., \& Brumberg, R. (1954).
+\newblock Utility analysis and the consumption function: An interpretation of cross-section data.
+\newblock In K. Kurihara (Ed.), \emph{Post-Keynesian Economics} (pp. 388--436).
+\newblock New Brunswick, NJ: Rutgers University Press.
+
+\bibitem{polanyi1944}
+Polanyi, K. (1944).
+\newblock \emph{The Great Transformation}.
+\newblock New York: Farrar \& Rinehart.
+
+\end{thebibliography}
+
+\end{document}
