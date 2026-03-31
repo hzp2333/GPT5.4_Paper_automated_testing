@@ -1,26 +1,32 @@
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\caption{市级地区-年份样本：进入退出指标回归}
+\caption{市级地区-行业-年份样本：基准固定效应回归}
 \begin{tabular}{l*{4}{c}}
 \toprule
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
                     &\multicolumn{1}{c}{净进入率}&\multicolumn{1}{c}{净进入率}&\multicolumn{1}{c}{进入率}&\multicolumn{1}{c}{退出率}\\
 \midrule
-滞后一期样本企业总数对数&      0.0554\sym{***}&     -0.0290\sym{***}&     -0.0645\sym{***}&      0.0645\sym{***}\\
-                    &   (0.00440)         &   (0.00503)         &   (0.00879)         &   (0.00879)         \\
+滞后一期单元企业数对数&       0.146\sym{***}&     -0.0103\sym{**} &    -0.00515\sym{**} &     0.00515\sym{**} \\
+                    &    (0.0113)         &   (0.00442)         &   (0.00221)         &   (0.00221)         \\
 \addlinespace
-滞后一期进入率      &                     &       1.462\sym{***}&                     &                     \\
-                    &                     &    (0.0517)         &                     &                     \\
+滞后一期净进入率    &                     &       0.449\sym{***}&                     &                     \\
+                    &                     &    (0.0117)         &                     &                     \\
 \addlinespace
-滞后一期退出率      &                     &           0         &                     &                     \\
-                    &                     &         (.)         &                     &                     \\
+滞后一期城市行业集中度HHI&                     &      0.0997         &      0.0498         &     -0.0498         \\
+                    &                     &     (0.103)         &    (0.0514)         &    (0.0514)         \\
 \addlinespace
-Constant            &    0.000896         &      -0.472\sym{***}&       1.028\sym{***}&     -0.0282         \\
-                    &    (0.0321)         &    (0.0486)         &    (0.0443)         &    (0.0443)         \\
+滞后一期进入率      &                     &                     &       0.449\sym{***}&                     \\
+                    &                     &                     &    (0.0117)         &                     \\
+\addlinespace
+滞后一期退出率      &                     &                     &                     &       0.449\sym{***}\\
+                    &                     &                     &                     &    (0.0117)         \\
+\addlinespace
+Constant            &      -0.128\sym{***}&      -0.397\sym{***}&      0.0767\sym{***}&       0.474\sym{***}\\
+                    &    (0.0387)         &    (0.0566)         &    (0.0260)         &    (0.0315)         \\
 \midrule
-City FE             &         Yes         &         Yes         &         Yes         &         Yes         \\
+City-Industry FE    &         Yes         &         Yes         &         Yes         &         Yes         \\
 Year FE             &          No         &         Yes         &         Yes         &         Yes         \\
-Observations        &       7,856         &       7,856         &       7,856         &       7,856         \\
+Observations        &     395,593         &     395,593         &     395,593         &     395,593         \\
 Within R-squared    &                     &                     &                     &                     \\
 \bottomrule
 \multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\

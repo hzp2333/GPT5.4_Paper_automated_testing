@@ -1,13 +1,13 @@
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\caption{市级地区-年份样本：异质性分析}
+\caption{市级地区-行业-年份样本：异质性分析}
 \begin{tabular}{l*{3}{c}}
 \toprule
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
-                    &\multicolumn{1}{c}{净进入率}&\multicolumn{1}{c}{净进入率}&\multicolumn{1}{c}{退出率}\\
+                    &\multicolumn{1}{c}{净进入率}&\multicolumn{1}{c}{净进入率}&\multicolumn{1}{c}{净进入率}\\
 \midrule
-滞后一期样本企业总数对数&      -0.123\sym{***}&     -0.0278\sym{***}&      0.0142\sym{***}\\
-                    &    (0.0168)         &   (0.00506)         &   (0.00251)         \\
+滞后一期单元企业数对数&     -0.0295\sym{***}&     -0.0137\sym{***}&     -0.0157\sym{***}\\
+                    &   (0.00696)         &   (0.00514)         &   (0.00492)         \\
 \addlinespace
 east=0              &           0         &                     &                     \\
                     &         (.)         &                     &                     \\
@@ -15,14 +15,17 @@ east=0              &           0         &                     &               
 east=1              &           0         &                     &                     \\
                     &         (.)         &                     &                     \\
 \addlinespace
-east=0 $\times$ 滞后一期样本企业总数对数&           0         &                     &                     \\
+east=0 $\times$ 滞后一期单元企业数对数&           0         &                     &                     \\
                     &         (.)         &                     &                     \\
 \addlinespace
-east=1 $\times$ 滞后一期样本企业总数对数&     -0.0383\sym{***}&                     &                     \\
-                    &   (0.00805)         &                     &                     \\
+east=1 $\times$ 滞后一期单元企业数对数&      0.0351\sym{***}&                     &                     \\
+                    &    (0.0117)         &                     &                     \\
 \addlinespace
-滞后一期进入率      &                     &       1.449\sym{***}&                     \\
-                    &                     &    (0.0535)         &                     \\
+滞后一期净进入率    &       0.443\sym{***}&       0.450\sym{***}&       0.448\sym{***}\\
+                    &    (0.0124)         &    (0.0117)         &    (0.0116)         \\
+\addlinespace
+滞后一期城市行业集中度HHI&      0.0571         &      0.0747         &      0.0519         \\
+                    &     (0.105)         &     (0.102)         &     (0.104)         \\
 \addlinespace
 省会城市=0          &                     &           0         &                     \\
                     &                     &         (.)         &                     \\
@@ -30,14 +33,11 @@ east=1 $\times$ 滞后一期样本企业总数对数&     -0.0383\sym{***}&     
 省会城市=1          &                     &           0         &                     \\
                     &                     &         (.)         &                     \\
 \addlinespace
-省会城市=0 $\times$ 滞后一期进入率&                     &           0         &                     \\
+省会城市=0 $\times$ 滞后一期单元企业数对数&                     &           0         &                     \\
                     &                     &         (.)         &                     \\
 \addlinespace
-省会城市=1 $\times$ 滞后一期进入率&                     &       0.157\sym{***}&                     \\
-                    &                     &    (0.0404)         &                     \\
-\addlinespace
-滞后一期退出率      &                     &                     &       0.729\sym{***}\\
-                    &                     &                     &    (0.0262)         \\
+省会城市=1 $\times$ 滞后一期单元企业数对数&                     &      0.0158         &                     \\
+                    &                     &    (0.0165)         &                     \\
 \addlinespace
 副省级城市=0        &                     &                     &           0         \\
                     &                     &                     &         (.)         \\
@@ -45,18 +45,18 @@ east=1 $\times$ 滞后一期样本企业总数对数&     -0.0383\sym{***}&     
 副省级城市=1        &                     &                     &           0         \\
                     &                     &                     &         (.)         \\
 \addlinespace
-副省级城市=0 $\times$ 滞后一期退出率&                     &                     &           0         \\
+副省级城市=0 $\times$ 滞后一期单元企业数对数&                     &                     &           0         \\
                     &                     &                     &         (.)         \\
 \addlinespace
-副省级城市=1 $\times$ 滞后一期退出率&                     &                     &      0.0733\sym{***}\\
-                    &                     &                     &    (0.0209)         \\
+副省级城市=1 $\times$ 滞后一期单元企业数对数&                     &                     &      0.0325\sym{*}  \\
+                    &                     &                     &    (0.0167)         \\
 \addlinespace
-Constant            &       1.087\sym{***}&      -0.477\sym{***}&     0.00592         \\
-                    &    (0.0846)         &    (0.0479)         &    (0.0133)         \\
+Constant            &      -0.369\sym{***}&      -0.387\sym{***}&      -0.374\sym{***}\\
+                    &    (0.0613)         &    (0.0578)         &    (0.0584)         \\
 \midrule
-City FE             &         Yes         &         Yes         &         Yes         \\
+City-Industry FE    &         Yes         &         Yes         &         Yes         \\
 Year FE             &         Yes         &         Yes         &         Yes         \\
-Observations        &       7,856         &       7,856         &       7,856         \\
+Observations        &     395,593         &     395,593         &     395,593         \\
 Within R-squared    &                     &                     &                     \\
 \bottomrule
 \multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
